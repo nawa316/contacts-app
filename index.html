@@ -13,9 +13,26 @@
       <section class="main_container_add_contact">
         <h2>Add New Contact</h2>
         <div class="container_add_contact">
-          <input class="form" type="text" placeholder="Name" />
-          <input class="form" type="text" placeholder="Email" />
-          <button class="button1">Add</button>
+          <input
+            id="formFirstName"
+            class="form"
+            type="text"
+            placeholder="First Name"
+          />
+          <input
+            id="formLastName"
+            class="form"
+            type="text"
+            placeholder="Last Name"
+          />
+          <input id="formEmail" class="form" type="text" placeholder="Email" />
+          <input
+            id="formPhoto"
+            class="form"
+            type="text"
+            placeholder="Photo Link"
+          />
+          <button onclick="addContact()" class="button1">Add</button>
         </div>
       </section>
       <section class="main_container_contact_list">

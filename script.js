@@ -10,15 +10,33 @@ function fetchData() {
 }
 fetchData();
 
-function deleteContact(i) {
-  contactData[i] = null;
-  renderData(contactData);
+function addContact() {
+  let firstName = document.getElementById("formFirstName").value;
+  let lastName = document.getElementById("formLastName").value;
+  let email = document.getElementById("formEmail").value;
+  let image = document.getElementById("formPhoto").value;
+
+  if (firstName === "" || lastName === "" || email === "" || image === "") {
+    alert("Please fill in all fields");
+  } else {
+    contactData.push({
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      image: image
+    });
+    renderData(contactData);
+  }
 }
 
-function updateContact(i) {
+function deleteContact(i) {
   document
     .getElementById("button" + i)
-    .addEventListener("click", deleteContact(i));
+    .addEventListener(
+      "click",
+      (contactData[i] = null),
+      renderData(contactData)
+    );
 }
 
 function renderData(data) {
@@ -31,7 +49,7 @@ function renderData(data) {
                 <p>${user.firstName} ${user.lastName}</p>
                 <p>${user.email}</p>
             </div>
-            <button id="button${i}" onclick="updateContact(${i})" class="button2">x</button>
+            <button id="button${i}" onclick="deleteContact(${i})" class="button2">x</button>
         </div>`;
       } else {
         return "";
